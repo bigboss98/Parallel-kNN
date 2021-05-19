@@ -64,16 +64,8 @@ int main(int argc, char** argv){
             computed_neighbors.insert(computed_neighbors.end(), 
                                       list_computed_neighbors[index].begin(),
                                       list_computed_neighbors[index].end());
-            /*
-            std::merge(computed_neighbors.begin(), computed_neighbors.end(),
-                       list_computed_neighbors[index].begin(), list_computed_neighbors[index].end(),
-                       computed_neighbors.begin(),
-                       [](tuple<int, vector<int>> elem_1, tuple<int, vector<int>> elem_2){
-                            return std::get<0>(elem_1) < std::get<0>(elem_2);             
-                        });
-            */
+
         }
-        //std::sort(computed_neighbors)
 
         write_points(output_path, computed_neighbors);
     }
