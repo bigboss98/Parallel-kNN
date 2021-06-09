@@ -15,3 +15,15 @@ For generate_points program there are 4 arguments: name of file to save generate
 For Sequential program there are only 3 arguments: Input file path, Output file path and number of Nearest neighbors
 For Parallel and Parallel_Fastflow is added to arguments of Sequential the number of worker to use  
 
+# Example 
+./generate_points input_points.txt 100 -5 +6 
+It creates 100 points with x and y values between -5 and +6 saved on input_points.txt file 
+
+./sequential input_points.txt output_points.txt 10
+It computes the 10 Nearest neighbors of points in input_points and save results on output_points.txt
+
+./parallel input_points.txt output_points.txt 10 4
+Parallel version of 10 Nearest Neighbors using 4 Threads 
+
+./parallel_fastflow input_points.txt output_points.txt 10 4
+Parallel Fastflow version of 10 Nearest Neighbors using 4 Threads
