@@ -1,0 +1,101 @@
+Parallel with 1 thread of 50K Points: 710886491 usecs
+Parallel Fastflow with 1 thread of 50K Points: 762420218 and 763387592 usecs
+Sequential: 709326074 usecs
+
+Parallel with 2 thread of 50K Points: 354395156 usecs
+Parallel Fastflow with 2 thread of 50K Points: 354221606 usecs
+
+Parallel with 3 thread of 50K Points: 241930384 usecs
+Parallel Fastflow with 3 thread of 50K Points: 241802984 usecs
+
+Parallel with 4 thread of 50K Points: 178570741 usecs
+Parallel Fastflow with 4 thread of 50K Points:177170286 usecs 
+
+Parallel with 5 thread of 50K Points: 145910039 usecs
+Parallel Fastflow with 5 thread of 50K Points: 144180984 usecs
+
+Parallel with 6 thread of 50K Points: 119424485 usecs
+Parallel Fastflow with 6 thread of 50K Points:  119297564 usecs
+
+Parallel with 7 thread of 50K Points: 104278959 usecs
+Parallel Fastflow with 7 thread of 50K Points: 117229791 usecs
+
+Parallel with 8 Thread of 50K Points: 92484557 usecs 
+Parallel Fastflow with 8 thread of 50K Points: 89560642 usecs
+
+Parallel with 9 Thread of 50K Points: 80643083 usecs
+Parallel Fastflow with 9 Thread of 50K Points: 84279715 usecs
+
+Parallel with 10 Thread of 50K Points: 72767372 usecs 
+Parallel Fastflow with 10 thread of 50K Points: 71729176 usecs
+
+Parallel with 11 Thread of 50K Points: 67028578 usecs 
+Parallel Fastflow with 11 Thread of 50K Points: 65890169 usecs
+
+Parallel with 12 Thread of 50K Points: 61436070 usecs
+Parallel Fastflow with 12 thread of 50K Points: 60818950 usecs
+
+Parallel with 13 Thread of 50K Points: 57290549 usecs
+Parallel Fastflow with 13 Thread of 50K Points: 55138429 usecs  
+
+Parallel with 14 Thread of 50K Points: 54726988 usecs 
+Parallel Fastflow with 14 thread of 50K Points: 51801129 usecs 
+
+Parallel with 15 Thread of 50K Points: 49954265 usecs
+Parallel Fastflow with 15 Thread of 50K Points: 47833155 usecs
+
+Parallel with 16 Thread of 50K Points: 46951773 usecs 
+Parallel Fastflow with 16 thread of 50K Points: 44856426 usecs
+
+Parallel with 17 Thread of 50K Points: 44606686 usecs
+Parallel Fastflow with 17 Thread of 50K Points: 42196869 usecs
+
+Parallel with 18 thread of 50K Points: 41477656 usecs 
+Parallel Fastflow with 18 thread of 50K Points: 39877910 usecs
+
+Parallel with 19 Thread of 50K Points: 39809010 usecs
+Parallel Fastflow with 19 Thread of 50K Points: 37763574 usecs
+
+Parallel with 20 Thread of 50K Points: 37457404 usecs 
+Parallel Fastflow with 20 Thread of 50K Points: 35907679 usecs
+
+Parallel with 22 Thread of 50K Points: 35053185 usecs
+Parallel Fastflow with 22 Thread of 50K Points: 34808327 usecs
+
+Parallel with 24 Thread of 50K Points: 30963231 usecs
+Parallel Fastflow with 24 of 50K Points: 29934871 usecs
+
+Parallel with 26 Thread of 50K Points: 28741688 usecs 
+Parallel Fastflow with 26 Thread of 50K Points: 27645537 usecs
+
+Parallel with 28 Thread of 50K Points: 28742836 usecs 
+Parallel Fastflow with 28 Thread of 50K Points: 25651814 usecs
+
+Parallel with 30 Thread of 50K Points: 26824303 usecs 
+Parallel Fastflow with 30 Thread of 50K Points: 23962407 usecs
+
+Parallel with 32 Thread of 50K Points: 24118249 usecs 
+Parallel Fastflow with 32 Thread of 50K Points: 22476992 usecs
+
+Parallel with 35 Thread of 50K Points: 23658817 usecs 
+Parallel Fastflow with 35 Thread of 50K Points: 20534538 usecs
+
+Parallel with 40 Thread of 50K Points: 21651227 usecs 
+Parallel Fastflow with 40 Thread of 50K Points: 18013417  usecs
+
+Parallel with 45 Thread of 50K Points: 19195542 usecs 
+Parallel Fastflow with 45 Thread of 50K Points: 16033442 usecs
+
+Parallel with 50 Thread of 50K Points: 17742410 usecs
+Parallel Fastflow with 50 Thread of 50K Points: 14440462 usecs
+
+Parallel with 55 Thread of 50K Points: 15871047 usecs 
+Parallel Fastflow with 55 Thread of 50K Points: 13236793 usecs 
+
+Parallel with 60 Thread of 50K Points: 14496139 usecs 
+Parallel Fastflow with 60 Thread of 50K Points: 12142248 usecs
+
+Parallel with 64 Thread of 50K Points: 13763067 usecs
+Parallel Fastflow with 64 Thread of 50K Points: 11396855 usecs
+
+

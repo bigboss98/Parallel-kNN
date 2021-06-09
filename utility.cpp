@@ -1,6 +1,6 @@
 /*
  * Utility function for k Nearest Neighbors implementation
- * Used by sequantial and parallel version 
+ * Used by sequential and parallel versions 
  */
 #include <algorithm>
 #include "utility.h"
@@ -17,11 +17,18 @@ using std::tuple;
 using std::string;
 
 double euclidean_distance(tuple<int, double, double> point, tuple<int, double, double> other){
-    return sqrt((std::get<1>(point) - std::get<1>(other)) + 
-                (std::get<2>(point) - std::get<2>(other)));
+    /*
+     * Compute the Euclidean Distance between two points
+     */
+    return sqrt(pow((std::get<1>(point) - std::get<1>(other)), 2) + 
+                pow((std::get<2>(point) - std::get<2>(other)), 2));
 }
 
 void read_points(string input_path, vector<tuple<int, double, double>>& points){
+    /*
+     * Read Points from an input file where the point ID is the line of the file and 
+     * x and y value are provided in every line of file separed by a comma.
+     */
     std::ifstream input_points;
     tuple<int, double, double> point {}; 
 
@@ -47,6 +54,10 @@ void read_points(string input_path, vector<tuple<int, double, double>>& points){
 }
 
 void write_points(string output_path, const vector<tuple<int, vector<int>>> nearest_neighbors){
+    /*
+     * Write k Nearest neighbors of all 2D points with the following format
+     * point_ID  ID of all k Nearest Neighbors
+     */
     std::ofstream output_file;
 
     output_file.open(output_path);
@@ -65,35 +76,33 @@ void write_points(string output_path, const vector<tuple<int, vector<int>>> near
     output_file.close();
 }
 
-void compute_knn(const vector<tuple<int, double, double>>& points, 
-                 vector<tuple<int, vector<int>>>& computed_neighbors,
-                 const int num_neighbors, int start, int end){
-    auto first = points.cbegin() + start;
-    auto second = points.cbegin() + end;
-    vector<tuple<int, double, double>> computed_point(first, second);
-    std::mutex mutex_obj;
+vector<int> compute_knn(tuple<int, double, double> point,
+                         const vector<tuple<int, double, double>>& points, 
+                         const int num_neighbors){
+    /*
+     * Compute the k Nearest Neighbors of a 2D Point
+     */
 
-    for (auto const& point : computed_point){
-        vector<tuple<int, double>> point_distances {}; 
-        for(auto other : points){
-            if(std::get<0>(other) != std::get<0>(point)){
-                point_distances.push_back({std::get<0>(other), 
-                                           euclidean_distance(point, other)});
-            }
+    vector<tuple<int, double>> point_distances {}; 
+    int point_id = std::get<0>(point);
+
+    for(auto other : points){
+        int other_point_id = std::get<0>(other);
+        if(other_point_id != point_id){
+            point_distances.push_back({other_point_id, 
+                                       euclidean_distance(point, other)});
         }
-        vector<int> nearest_neighbors = {};
+    }
+    vector<int> nearest_neighbors = {};
 
-        std::sort(point_distances.begin(), point_distances.end(),
-                    [](tuple<int, double> first, tuple<int, double> second){
+    // Sort distance from a point to choose the k nearest point 
+    std::sort(point_distances.begin(), point_distances.end(),
+                [](tuple<int, double> first, tuple<int, double> second){
                         return std::get<1>(first) <= std::get<1>(second);
                     });
-        for(int index=0; index < num_neighbors;++index){
+    for(int index=0; index < num_neighbors;++index){
             nearest_neighbors.push_back(std::get<0>(point_distances[index]));
-        }
-        
-        computed_neighbors.push_back({std::get<0>(point), 
-                                      nearest_neighbors});    
-        
     }
+    return nearest_neighbors;    
     
 }

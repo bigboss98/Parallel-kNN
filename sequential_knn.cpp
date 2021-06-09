@@ -9,12 +9,16 @@
 #include <cmath>
 #include <fstream>
 #include <functional>
+#include "utimer.cpp"
 #include "utility.h"
 using std::string;
 using std::tuple;
 using std::vector;
 
 int main(int argc, char** argv){
+    /*
+     * Compute the K Nearest Neighbors of all point in a sequential way
+     */
     string input_path = argv[1];
     string output_path = argv[2];
     int num_neighbors = atoi(argv[3]);
@@ -22,18 +26,20 @@ int main(int argc, char** argv){
 
     read_points(input_path, points);
     if (points.size() < num_neighbors)
-        num_neighbors = points.size();
-
-    vector<tuple<int, vector<int>>> computed_neighbors {};
-    compute_knn(points, computed_neighbors, num_neighbors, 0, points.size());
-    
+        num_neighbors = points.size() - 1;
+    int num_points = points.size(); 
+    vector<tuple<int, vector<int>>> computed_neighbors (points.size());
+    {
+        utimer tpar("Sequential version");
+        for(int index=0; index < num_points; ++index){
+            computed_neighbors[index] = std::make_tuple(std::get<0>(points[index]),
+                                                        compute_knn(points[index], points, num_neighbors));
+        }
+    }
     write_points(output_path, computed_neighbors);
-
-    std::cout << "Written " << num_neighbors << " for each point in " 
-              << output_path << std::endl;
-    std::cout << num_neighbors << std::endl;
-    std::cout << input_path << std::endl;
-    std::cout << output_path << std::endl;
-    std::cout << points.size() << std::endl;
+    
+     
+    std::cout << "Written Top " << num_neighbors << " for each " << points.size() 
+              << " points in "   << output_path << std::endl;
 }
 

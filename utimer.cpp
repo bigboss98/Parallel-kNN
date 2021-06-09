@@ -1,11 +1,11 @@
 #include <iostream>
 #include <chrono>
-
-
 #define START(timename) auto timename = std::chrono::system_clock::now();
 #define STOP(timename,elapsed)  auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now() - timename).count();
 
-
+/*
+ * Utimer class taken from Danelutto implementation used during class Laboratory
+ */
 class utimer {
   std::chrono::system_clock::time_point start;
   std::chrono::system_clock::time_point stop;
