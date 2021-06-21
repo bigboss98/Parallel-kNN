@@ -28,15 +28,14 @@ int main(int argc, char** argv){
     if (points.size() < num_neighbors)
         num_neighbors = points.size() - 1;
     
-    vector<tuple<int, vector<int>>> computed_neighbors(points.size());
+    vector<vector<int>> computed_neighbors(points.size());
     
     ParallelFor pf(num_workers);
     {
         utimer tpar("Fastflow Parallel version");
         
         ff::parallel_for(0, points.size(), 1, 1000, [&](const long index){
-        computed_neighbors[index] = std::make_tuple(std::get<0>(points[index]),
-                                                    compute_knn(points[index], points, num_neighbors));
+                computed_neighbors[index] = compute_knn(points[index], points, num_neighbors);
             }, num_workers);
     }
         write_points(output_path, computed_neighbors);

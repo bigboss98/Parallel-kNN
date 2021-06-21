@@ -28,12 +28,11 @@ int main(int argc, char** argv){
     if (points.size() < num_neighbors)
         num_neighbors = points.size() - 1;
     int num_points = points.size(); 
-    vector<tuple<int, vector<int>>> computed_neighbors (points.size());
+    vector<vector<int>> computed_neighbors (points.size());
     {
         utimer tpar("Sequential version");
         for(int index=0; index < num_points; ++index){
-            computed_neighbors[index] = std::make_tuple(std::get<0>(points[index]),
-                                                        compute_knn(points[index], points, num_neighbors));
+            computed_neighbors[index] = compute_knn(points[index], points, num_neighbors);
         }
     }
     write_points(output_path, computed_neighbors);

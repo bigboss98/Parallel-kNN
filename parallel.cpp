@@ -37,7 +37,7 @@ int main(int argc, char** argv){
     
     
     vector<thread> tids;
-    vector<tuple<int, vector<int>>> computed_neighbors(points.size());
+    vector<vector<int>> computed_neighbors(points.size());
 
     int points_for_worker = ceil(points.size() / num_workers);
     
@@ -45,9 +45,8 @@ int main(int argc, char** argv){
         utimer tpar("parallel");
 
         auto compute_knn_neighbors = [&](int start, int end){
-        for(int index=start; index < end; ++index){
-            computed_neighbors[index] = std::make_tuple(std::get<0>(points[index]),
-                                                        compute_knn(points[index], points, num_neighbors));
+            for(int index=start; index < end; ++index){
+                computed_neighbors[index] = compute_knn(points[index], points, num_neighbors);
             }
         };
 

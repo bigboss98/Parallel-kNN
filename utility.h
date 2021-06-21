@@ -9,7 +9,7 @@
 
 
 void read_points(std::string input_path, std::vector<std::tuple<int, double, double>>& points);
-void write_points(std::string output_path, const std::vector<std::tuple<int, std::vector<int>>> nearest_neighbors);
+void write_points(std::string output_path, const std::vector<std::vector<int>> nearest_neighbors);
 double euclidean_distance(std::tuple<int, double, double> point, std::tuple<int, double, double> other);
 std::vector<int> compute_knn(std::tuple<int, double, double> point,
                          const std::vector<std::tuple<int, double, double>>& points, 
